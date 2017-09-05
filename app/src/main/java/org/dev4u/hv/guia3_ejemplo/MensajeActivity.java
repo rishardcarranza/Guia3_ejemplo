@@ -2,6 +2,7 @@ package org.dev4u.hv.guia3_ejemplo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.DateTimeKeyListener;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -42,10 +43,10 @@ public class MensajeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Validar que el mensaje no esta vacio
-                if (!txtMensaje.getText().toString().isEmpty()) {
+                if (!txtMensaje.getText().toString().isEmpty() && txtMensaje.getText().length() > 0 && txtMensaje.getText().toString() != "") {
                     // Tomar lo datos de entrada y llenar el objeto
                     String mensaje = txtMensaje.getText().toString();
-                    String fecha = DateFormat.getDateInstance().format(new Date());
+                    String fecha = DateFormat.getDateTimeInstance().format(new Date());
 
                     Mensaje m = new Mensaje(fecha, mensaje);
 
@@ -53,6 +54,8 @@ public class MensajeActivity extends AppCompatActivity {
                     arrMensajes.add(m);
                     // Notificar los cambios al Adaptador
                     adaptadorMensaje.notifyDataSetChanged();
+                    // Limpiar el Texto
+                    txtMensaje.setText("");
 
                 } else {
                     Toast.makeText(MensajeActivity.this, "Por favor ingresa un mensaje !", Toast.LENGTH_LONG).show();

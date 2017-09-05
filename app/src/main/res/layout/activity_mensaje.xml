@@ -7,29 +7,33 @@
     tools:context="org.dev4u.hv.guia3_ejemplo.MensajeActivity">
 
     <RelativeLayout
-        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout">
+        android:layout_alignParentBottom="true">
+
         <EditText
-            android:layout_alignParentLeft="true"
             android:id="@+id/txtEntrada"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/btnEnviar" />
+            android:layout_alignParentLeft="true"
+            android:layout_toStartOf="@+id/btnEnviar"
+            android:hint="Digite Mensaje" />
+
         <Button
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:text="Enviar"
+            android:id="@+id/btnEnviar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnEnviar" />
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="Enviar" />
     </RelativeLayout>
+
     <ListView
         android:id="@+id/lstMensaje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/linearLayout"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/linearLayout" />
+        android:layout_alignParentTop="true" />
 </RelativeLayout>
